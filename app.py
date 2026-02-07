@@ -10,11 +10,12 @@ st.set_page_config(
 if "page" not in st.session_state:
     st.session_state.page = "Home"
 
+# 🔐 auto logout on refresh
 if "authenticated" not in st.session_state:
     st.session_state.authenticated = False
 
 # ------------------ PASSWORD ------------------
-HOME_PASSWORD = "141414"   # 🔑 change password here
+HOME_PASSWORD = "1234"   # 🔑 change password here
 
 # ------------------ PASSWORD PAGE ------------------
 if not st.session_state.authenticated:
@@ -28,7 +29,7 @@ if not st.session_state.authenticated:
         else:
             st.error("❌ Incorrect passcode")
 
-    # 🔴 Stop here – do NOT show sidebar or content
+    # Stop rendering until authenticated
     st.stop()
 
 # ------------------ SIDEBAR (ONLY AFTER PASSWORD) ------------------
