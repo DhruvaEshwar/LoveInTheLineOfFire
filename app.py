@@ -10,7 +10,28 @@ st.set_page_config(
 if "page" not in st.session_state:
     st.session_state.page = "Home"
 
-# ------------------ Sidebar Menu (Streamlit default) ------------------
+if "authenticated" not in st.session_state:
+    st.session_state.authenticated = False
+
+# ------------------ PASSWORD ------------------
+HOME_PASSWORD = "141414"   # 🔑 change password here
+
+# ------------------ PASSWORD PAGE ------------------
+if not st.session_state.authenticated:
+    st.markdown("### 🔒 Enter Passcode to access the website")
+    password = st.text_input("Passcode", type="password")
+
+    if st.button("Enter"):
+        if password == HOME_PASSWORD:
+            st.session_state.authenticated = True
+            st.success("✅ Access granted!")
+        else:
+            st.error("❌ Incorrect passcode")
+
+    # 🔴 Stop here – do NOT show sidebar or content
+    st.stop()
+
+# ------------------ SIDEBAR (ONLY AFTER PASSWORD) ------------------
 with st.sidebar:
     st.title("Menu")
 
@@ -20,7 +41,7 @@ with st.sidebar:
     if st.button("📖 Journey of a Young Mind"):
         st.session_state.page = "Journey"
 
-# ------------------ Pages ------------------
+# ------------------ PAGES ------------------
 if st.session_state.page == "Home":
     st.markdown(
         "<h1 style='text-align:center;'>Love in the Line of Fire</h1>",
