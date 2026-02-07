@@ -2,7 +2,7 @@ import streamlit as st
 
 # ------------------ Page Config ------------------
 st.set_page_config(
-    page_title="Love in the Line of Fire",
+    page_title="Journey of a Young Mind",
     layout="centered"
 )
 
@@ -45,7 +45,7 @@ with st.sidebar:
 # ------------------ PAGES ------------------
 if st.session_state.page == "Home":
     st.markdown(
-        "<h1 style='text-align:center;'>Love in the Line of Fire</h1>",
+        "<h1 style='text-align:center;'>Journey of a Young Mind</h1>",
         unsafe_allow_html=True
     )
 
