@@ -1,22 +1,25 @@
 import streamlit as st
 
 # ------------------ Page Config ------------------
-st.set_page_config(
-    page_title="Journey of a Young Mind",
-    layout="centered"
-)
-
-# ------------------ HIDE TOP RIGHT BUTTONS ------------------
 st.markdown("""
 <style>
-[data-testid="stToolbar"] {
-    visibility: hidden;
+/* Hide ONLY the top-right buttons (Share, Star, 3 dots) */
+[data-testid="stToolbarActions"] {
+    display: none;
 }
+
+/* Keep header & sidebar toggle arrow intact */
+header {
+    visibility: visible !important;
+}
+
+/* Optional: hide footer */
 footer {
     visibility: hidden;
 }
 </style>
 """, unsafe_allow_html=True)
+
 
 # ------------------ Session State ------------------
 if "page" not in st.session_state:
