@@ -6,6 +6,18 @@ st.set_page_config(
     layout="centered"
 )
 
+# ------------------ HIDE TOP RIGHT BUTTONS ------------------
+st.markdown("""
+<style>
+[data-testid="stToolbar"] {
+    visibility: hidden;
+}
+footer {
+    visibility: hidden;
+}
+</style>
+""", unsafe_allow_html=True)
+
 # ------------------ Session State ------------------
 if "page" not in st.session_state:
     st.session_state.page = "Home"
@@ -15,7 +27,7 @@ if "authenticated" not in st.session_state:
     st.session_state.authenticated = False
 
 # ------------------ PASSWORD ------------------
-HOME_PASSWORD = "14022010"   # 🔑 change password here
+HOME_PASSWORD = "14022010"
 
 # ------------------ PASSWORD PAGE ------------------
 if not st.session_state.authenticated:
@@ -29,7 +41,6 @@ if not st.session_state.authenticated:
         else:
             st.error("❌ Incorrect passcode")
 
-    # Stop rendering until authenticated
     st.stop()
 
 # ------------------ SIDEBAR (ONLY AFTER PASSWORD) ------------------
@@ -51,4 +62,5 @@ if st.session_state.page == "Home":
 
 elif st.session_state.page == "Journey":
     st.markdown("<h1>Journey of a Young Mind</h1>", unsafe_allow_html=True)
-    st.write("📅 **Will be uploaded on 14th Feb, 2026**")
+    st.write("📅 **Will be uploaded on 17th Feb, 2026**")
+
