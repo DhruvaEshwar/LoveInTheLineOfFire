@@ -15,7 +15,7 @@ if "authenticated" not in st.session_state:
     st.session_state.authenticated = False
 
 # ------------------ PASSWORD ------------------
-HOME_PASSWORD = "1234"   # 🔑 change password here
+HOME_PASSWORD = "14022010"   # 🔑 change password here
 
 # ------------------ PASSWORD PAGE ------------------
 if not st.session_state.authenticated:
